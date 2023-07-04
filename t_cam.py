@@ -18,6 +18,9 @@ from plate_reader import REST_pltrdr
 #from scale_camera import scale_cam
 
 
+####TEST####
+
+
 #Checks before running:
 #   - All COM ports (a4S, Xpeel, scale+cam) (device manager)
 #   - Opentrons wired IP adress --> it changes, when it does you first have to go to Pycharm>Terminal>and manually ssh "the autenticity og host can't be established">yes and then you can go
