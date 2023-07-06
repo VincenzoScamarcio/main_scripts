@@ -80,10 +80,13 @@ def check_temp():
 if __name__ == "__main__":
     # run()
     open_connection()
-    # plate_out()
-    temp_control('35.0')
-    while (True):
-        check_temp()
+    plate_in()
+    plate_out()
+    close_connection()
+
+    # temp_control('35.0')
+    # while (True):
+    #     check_temp()
     # shake_control(0, 0, 0)
     # shake_control(2, 0, 10000)
     # plate_in()

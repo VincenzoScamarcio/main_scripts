@@ -11,7 +11,7 @@ from sensirion_i2c_driver import I2cConnection
 # Connect to the SensorBridge with default settings:
 #  - baudrate:      460800
 #  - slave address: 0
-with ShdlcSerialPort(port='COM4', baudrate=460800) as port:
+with ShdlcSerialPort(port='/dev/ttyUSB0', baudrate=460800) as port:
     bridge = SensorBridgeShdlcDevice(ShdlcConnection(port), slave_address=0)
     print("SensorBridge SN: {}".format(bridge.get_serial_number()))
 

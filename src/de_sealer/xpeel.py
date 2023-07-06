@@ -4,7 +4,7 @@ import serial
 
 
 #xpeel = serial.Serial(port='COM6', baudrate=9600) #this works in python 3.8 windows
-xpeel = serial.Serial(port='/dev/ttyS8', baudrate=9600)
+xpeel = serial.Serial(port='/dev/ttyUSB0', baudrate=9600)
 
 def set_param():
     #input = 'sealstat'
