@@ -9,10 +9,10 @@ from abb_rw_client.robot_api import RobotAPI
 
 
 
-from pipetting_station import SSH_pipstn
-from de_sealer import xpeel
-from sealer import a4S
-from plate_reader import REST_pltrdr
+# from pipetting_station import SSH_pipstn
+# from de_sealer import xpeel
+# from sealer import a4S
+# from plate_reader import REST_pltrdr
 #from scale_camera import scale_cam
 
 

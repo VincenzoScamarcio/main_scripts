@@ -12,19 +12,22 @@ def exec_script_SSH (protocol_name):  #add param script to run
 
     #Two parameters to use if I log in in WSL --> password for sudo command and random command so that I
     #can execute the command in pipetting station. If I don't use sudo I cannot run the subrocess.
-    pwd = 'vincenzo'
+    # pwd = 'vincenzo'  #pwd WSL on windows laptop
+    pwd = 'simo2023'  #pwd ubuntu laptop
     cmd = 'ls'
 
     #Series of commands to run specific file in pipetting station
 
-    call('echo {} | sudo -S {}'.format(pwd, cmd), shell=True)  # This is needed only for WSL because i need to run it with sudo
+    # call('echo {} | sudo -S {}'.format(pwd, cmd), shell=True)  # This is needed only for WSL because i need to run it with sudo
 
     # command = "sudo ssh -i /mnt/c/Users/scamarci/ot2_ssh_key_ubuntu root@169.254.237.234".split(" ")
     #
     # command.append('systemctl start opentrons-robot-server')
     #
     # subprocess.run(command)
-    command1 = "sudo ssh -i /mnt/c/Users/scamarci/ot2_ssh_key_ubuntu root@169.254.237.234".split(" ")
+    #command1 = "ssh -i /mnt/c/Users/scamarci/ot2_ssh_key_ubuntu root@169.254.237.234".split(" ")  --> works on WSL
+
+    command1 = "ssh -i ot2_ssh_key root@169.254.237.234".split(" ")   #--> works on ubuntu
 
     # export RUNNING_ON_PI=1
 
