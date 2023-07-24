@@ -11,6 +11,7 @@ General pipeline to upload protocol:
 - Create protocol in 'Protocols' folder
 - Copy it in Ot-2 by using:
 scp -i ot2_ssh_key \Users\scamarci\Documents\PhD\Automation_project\main_scripts\src\pipetting_station\protocols\<nameofprotocol>.py root@169.254.237.234:<nameofprotocol>.py (this on windows power shell!)
+scp -i ot2_ssh_key /home/project_simo/PycharmProjects/main_scripts/src/pipetting_station/protocols/Laura/NaCRe_test1.py root@169.254.237.234:NaCRe_test1.py (this on Ubuntu)
 
 
 COPY CUSTOM LABWARE IN PIPETTING STATION:
@@ -20,8 +21,10 @@ COPY CUSTOM LABWARE IN PIPETTING STATION:
                                                                    # upload .json file in pipetting station
 
 
-##Use this to copy in windows power shell (copy the .json file from his folder to Desktop)
+##Use this to copy in windows powershell (copy the .json file from his folder to Desktop)
 scp -i ot2_ssh_key \Users\scamarci\Desktop\nunc_96_wellplate_1000ul.json root@169.254.237.234:labware\custom_defintion\nunc_96_wellplate_1000ul.json
+scp -i ot2_ssh_key Desktop/nunc_96_wellplate_450ul.json root@169.254.237.234:labware/custom_defintion/nunc_96_wellplate_450ul.json
+
 
     with open('labware/custom_defintion/nunc_96_wellplate_400ul.json') as labware_file:
         labware_def = json.load(labware_file)
