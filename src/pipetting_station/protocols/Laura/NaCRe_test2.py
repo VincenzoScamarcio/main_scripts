@@ -22,10 +22,6 @@ def run(protocol: protocol_api.ProtocolContext):
     # temp_mod = protocol.load_module('temperature module gen2', '1')
 
     ####### load tipracks ########
-    tiprack_20 = [
-        protocol.load_labware('opentrons_96_tiprack_20ul', slot)
-        for slot in ['4', '5']
-    ]
 
     tiprack_300 = [
         protocol.load_labware('opentrons_96_tiprack_300ul', slot)
@@ -42,7 +38,6 @@ def run(protocol: protocol_api.ProtocolContext):
 
     ####### Load pipettes #########
     pipette_300 = protocol.load_instrument('p300_single_gen2', mount='left', tip_racks=tiprack_300)
-    pipette_20  = protocol.load_instrument('p20_single_gen2', mount='right', tip_racks=tiprack_20)
 
     ####### Variables ########
 
@@ -95,22 +90,31 @@ def run(protocol: protocol_api.ProtocolContext):
     ###### Protocol ##########
 
     #sample
-    #Glucagon --> 72.83 uL
+    #LAP --> 25 uL
     _pick_up(pipette_300, )
-    pipette_300.transfer(72.83 , stock_solutions.well('A1'), stock_solutions.well('A5'), new_tip="never", mix_before=(3, 60))
+    pipette_300.transfer(25.0 , stock_solutions.well('A1'), receiving_plate.wells_by_name()['A1'], new_tip="never", mix_before=(3, 100), mix_after=(3,25))
     pipette_300.drop_tip()
-    #BlactoA --> 72.83 uL
     _pick_up(pipette_300, )
-    pipette_300.transfer(72.83 , stock_solutions.well('A2'), stock_solutions.well('A5'), new_tip="never", mix_before=(3, 60))
+    pipette_300.transfer(25.0 , stock_solutions.well('A1'), receiving_plate.wells_by_name()['A2'], new_tip="never", mix_before=(3, 100), mix_after=(3,25))
     pipette_300.drop_tip()
-    #Thermolysin --> 11.5 uL
-    _pick_up(pipette_20, )
-    pipette_20.transfer(11.5, stock_solutions.well('A3'), stock_solutions.well('A5'), new_tip="never", mix_before=(3, 10))
-    pipette_20.drop_tip()
-    #Silk fibroin --> 72.83 uL
     _pick_up(pipette_300, )
-    pipette_300.transfer(72.83 , stock_solutions.well('A4'), stock_solutions.well('A5'), new_tip="never", mix_before=(3, 100), mix_after=(3,100))
+    pipette_300.transfer(25.0 , stock_solutions.well('A1'), receiving_plate.wells_by_name()['B1'], new_tip="never", mix_before=(3, 100), mix_after=(3,25))
     pipette_300.drop_tip()
+    _pick_up(pipette_300, )
+    pipette_300.transfer(25.0 , stock_solutions.well('A1'), receiving_plate.wells_by_name()['B2'], new_tip="never", mix_before=(3, 100), mix_after=(3,25))
+    pipette_300.drop_tip()
+    # #BlactoA --> 72.83 uL
+    # _pick_up(pipette_300, )
+    # pipette_300.transfer(72.83 , stock_solutions.well('A2'), stock_solutions.well('A5'), new_tip="never", mix_before=(3, 60))
+    # pipette_300.drop_tip()
+    # #Thermolysin --> 11.5 uL
+    # _pick_up(pipette_20, )
+    # pipette_20.transfer(11.5, stock_solutions.well('A3'), stock_solutions.well('A5'), new_tip="never", mix_before=(3, 10))
+    # pipette_20.drop_tip()
+    # #Silk fibroin --> 72.83 uL
+    # _pick_up(pipette_300, )
+    # pipette_300.transfer(72.83 , stock_solutions.well('A4'), stock_solutions.well('A5'), new_tip="never", mix_before=(3, 100), mix_after=(3,100))
+    # pipette_300.drop_tip()
     #Digestion buffer --> 65.17 uL  MIX GENTLY
     # _pick_up(pipette_300, )
     # pipette_300.transfer(65.17+20,
@@ -121,28 +125,28 @@ def run(protocol: protocol_api.ProtocolContext):
     #                      mix_after=(3, 100))
     # pipette_300.drop_tip()
 
-    #Neg control
-    #Digestion buffer --> 218.5 uL
-    _pick_up(pipette_300, )
-    pipette_300.transfer(218.5, stock_solutions.well('B1'), stock_solutions.well('A6'), new_tip="never", mix_before=(3, 100))
-    pipette_300.drop_tip()
-    #Thermolysin --> 11.5 uL
-    _pick_up(pipette_20, )
-    pipette_20.transfer(11.5, stock_solutions.well('A3'), stock_solutions.well('A6'), new_tip="never", mix_before=(3, 10))
-    pipette_20.drop_tip()
-    #MIX GENTLY
-    _pick_up(pipette_300, )
-    pipette_300.mix(3,100, stock_solutions.well('A6'))
-    pipette_300.drop_tip()
+    # #Neg control
+    # #Digestion buffer --> 218.5 uL
+    # _pick_up(pipette_300, )
+    # pipette_300.transfer(218.5, stock_solutions.well('B1'), stock_solutions.well('A6'), new_tip="never", mix_before=(3, 100))
+    # pipette_300.drop_tip()
+    # #Thermolysin --> 11.5 uL
+    # _pick_up(pipette_20, )
+    # pipette_20.transfer(11.5, stock_solutions.well('A3'), stock_solutions.well('A6'), new_tip="never", mix_before=(3, 10))
+    # pipette_20.drop_tip()
+    # #MIX GENTLY
+    # _pick_up(pipette_300, )
+    # pipette_300.mix(3,100, stock_solutions.well('A6'))
+    # pipette_300.drop_tip()
 
-    #Transfer of Sample and Negative Control in plate
-    _pick_up(pipette_300, )
-    pipette_300.distribute(100, stock_solutions.well('A5'), [receiving_plate.wells_by_name()[well_name] for well_name in ['A1', 'B1']], new_tip="never")
-    pipette_300.drop_tip()
+    #Transfer LAP into sample 25 uL
+    # _pick_up(pipette_300, )
+    # pipette_300.distribute(25, stock_solutions.well('A1'), [receiving_plate.wells_by_name()[well_name] for well_name in ['A1', 'B1', 'A2', 'B2']], new_tip="never")
+    # pipette_300.drop_tip()
 
-    _pick_up(pipette_300, )
-    pipette_300.distribute(100, stock_solutions.well('A6'), [receiving_plate.wells_by_name()[well_name] for well_name in ['A2', 'B2']], new_tip="never")
-    pipette_300.drop_tip()
+    # _pick_up(pipette_300, )
+    # pipette_300.distribute(100, stock_solutions.well('A6'), [receiving_plate.wells_by_name()[well_name] for well_name in ['A2', 'B2']], new_tip="never")
+    # pipette_300.drop_tip()
 
 
     # _pick_up(pipette_20, )

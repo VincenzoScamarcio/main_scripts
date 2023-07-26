@@ -40,6 +40,6 @@ def exec_script_SSH (protocol_name):  #add param script to run
 
 
 if __name__ == "__main__":
-    exec_script_SSH("NaCRe_test1.py")
+    exec_script_SSH("NaCRe_test2.py")
 
     print("finished pipetting")
