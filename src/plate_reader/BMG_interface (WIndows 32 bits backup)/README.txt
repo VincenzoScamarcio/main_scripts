@@ -1,0 +1,1 @@
+This has to work on a laptop with windows 32 bits Pyhton 
