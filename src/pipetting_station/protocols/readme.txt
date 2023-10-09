@@ -1,7 +1,7 @@
 The protocols are stored in the Opentrons in the root folder, it is the folder you access when calling:
-sudo ssh -i /mnt/c/Users/scamarci/ot2_ssh_key_ubuntu root@169.254.31.238   (password is 'vincenzo') (this on Ubuntu)
+sudo ssh -i /mnt/c/Users/scamarci/ot2_ssh_key_ubuntu root@169.254.31.238   (password is 'vincenzo') (this on WSL windows Ubuntu)
 
-ssh -i ot2_ssh_key root@169.254.237.234 (this is on windows power shell!)
+ssh -i ot2_ssh_key root@169.254.237.234 (this is on windows power shell! and ubuntu)
 in this folder the file config.json should be stored to have the calibrated deck
 
 Since the protocols can be canceled over power cycles and updates A COPY WITH SAME NAME will be

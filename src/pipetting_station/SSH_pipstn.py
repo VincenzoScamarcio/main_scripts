@@ -27,7 +27,7 @@ def exec_script_SSH (protocol_name):  #add param script to run
     # subprocess.run(command)
     #command1 = "ssh -i /mnt/c/Users/scamarci/ot2_ssh_key_ubuntu root@169.254.237.234".split(" ")  --> works on WSL
 
-    command1 = "ssh -i ot2_ssh_key root@169.254.237.234".split(" ")   #--> works on ubuntu
+    command1 = "ssh -i ot2_ssh_key root@169.254.52.206".split(" ")   #--> works on ubuntu
 
     # export RUNNING_ON_PI=1
 
@@ -40,6 +40,6 @@ def exec_script_SSH (protocol_name):  #add param script to run
 
 
 if __name__ == "__main__":
-    exec_script_SSH("NaCRe_test2.py")
+    exec_script_SSH("CMC_1_noplate_test.py")
 
     print("finished pipetting")
