@@ -1,0 +1,14 @@
+In Home/AICA 2
+
+click on backend --> open with visual studio code
+then do the same with sunmil --> open with visual studio code
+
+in backend terminal --> type './run.sh -t pose'
+it will say some stuff and in the end it will say 'fully connected'
+
+then go to sunmil --> in the yamal file and run "set_marker_wobj.yaml"
+or if you need to set back the camera run "camera_calibration.yaml"
+
+from sunmil terminal run --> 'python3 app.py' --> so you run the app file with the selected yaml file
+
+if you wanna visualize it in rviz --> in backend terminal type './connect.sh' and then you open rviz
