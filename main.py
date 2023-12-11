@@ -26,16 +26,16 @@ if not api.test_connection():
     exit(1)
 
 
-JAG_robot.test_routines(api, ['ot2_plate', 'plate_ot2'])
-JAG_robot.change_ot2_well(api, 1)
-JAG_robot.test_routines(api, ['test_ot2_ot2_p', 'test_ot2_leave_plate', 'test_ot2_p_ot2'])
-SSH_pipstn.exec_script_SSH("test_tip.py")
-JAG_robot.test_routines(api, ['test_ot2_ot2_p', 'test_ot2_grip_plate', 'test_ot2_p_ot2'])
-JAG_robot.test_routines(api, ['ot2_table', 'table_a4s', 'leave_plate', 'a4s_table'])
-input("press any button after sealer has finished")
-JAG_robot.test_routines(api, ['table_a4s', 'grip_plate', 'a4s_table', 'table_clariostar', 'leave_plate', 'clariostar_table'])
-input("press any button after analyzer has finished")
-JAG_robot.test_routines(api, ['table_clariostar', 'grip_plate', 'clariostar_table'])
+JAG_robot.test_routines(api, ['a4s_table'])
+# JAG_robot.change_ot2_well(api, 1)
+# JAG_robot.test_routines(api, ['test_ot2_ot2_p', 'test_ot2_leave_plate', 'test_ot2_p_ot2'])
+# SSH_pipstn.exec_script_SSH("test_tip.py")
+# JAG_robot.test_routines(api, ['test_ot2_ot2_p', 'test_ot2_grip_plate', 'test_ot2_p_ot2'])
+# JAG_robot.test_routines(api, ['ot2_table', 'table_a4s', 'leave_plate', 'a4s_table'])
+# input("press any button after sealer has finished")
+# JAG_robot.test_routines(api, ['table_a4s', 'grip_plate', 'a4s_table', 'table_clariostar', 'leave_plate', 'clariostar_table'])
+# input("press any button after analyzer has finished")
+# JAG_robot.test_routines(api, ['table_clariostar', 'grip_plate', 'clariostar_table'])
 
 
 
